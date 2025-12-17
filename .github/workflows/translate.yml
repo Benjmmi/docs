@@ -23,7 +23,7 @@ jobs:
       - name: Run Translation Script
         env:
           OPENAI_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
-        run: python translate_script.py
+        run: python translate.py
 
       - name: Commit and Push Changes
         run: |
