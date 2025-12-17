@@ -5,7 +5,7 @@ from openai import OpenAI
 
 # 配置
 client = OpenAI(api_key=os.getenv("DEEPSEEK_API_KEY"), base_url="https://api.deepseek.com")
-SOURCE_DIR = "docs"
+SOURCE_DIR = "./"
 TARGET_DIR = "docs_zh"
 CACHE_FILE = "translation_cache.json"
 
