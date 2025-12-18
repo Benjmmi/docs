@@ -31,8 +31,11 @@ def translate_text(text):
 def main():
     cache = load_cache()
     if not os.path.exists(TARGET_DIR): os.makedirs(TARGET_DIR)
+    EXCLUDE_DIRS = {'docs_zh', '.git', 'scripts', '__pycache__', '.github'}
 
     for root, dirs, files in os.walk(SOURCE_DIR):
+        ## 跳过这些文件夹
+        dirs[:] = [d for d in dirs if d not in EXCLUDE_DIRS]
         for file in files:
             if file.endswith(".md"):
                 source_path = os.path.join(root, file)
