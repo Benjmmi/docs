@@ -37,7 +37,7 @@ def main():
         ## 跳过这些文件夹
         dirs[:] = [d for d in dirs if d not in EXCLUDE_DIRS]
         for file in files:
-            if file.endswith(".md"):
+            if file.endswith(".md") or file.endswith(".mdx"):
                 source_path = os.path.join(root, file)
                 rel_path = os.path.relpath(source_path, SOURCE_DIR)
                 target_path = os.path.join(TARGET_DIR, rel_path)
