@@ -23,7 +23,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }} # 使用内置 Token，无需额外设置
         run: |
           gh repo sync ${{ github.repository }} --source https://github.com/langchain-ai/docs.git
-          git pull 
+          git pull
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -31,13 +31,13 @@ jobs:
           python-version: '3.10'
 
       - name: Install dependencies
-        run: pip install openai tiktoken 
+        run: pip install openai tiktoken
 
       # 第二步：运行你之前的翻译脚本
       - name: Run Translation Script
         env:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
-        run: python translate.py
+        run: python src/translate.py
 
       # 第三步：将同步后的代码和新翻译的内容一起推送到你的分支
       - name: Commit and Push
