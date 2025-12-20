@@ -16,6 +16,9 @@ dependencies = [
 
 
 [dependency-groups]
+dev = [
+    "ruff>=0.14.1",
+]
 test = [
     "requests",
     "ruamel-yaml>=0.18.15",

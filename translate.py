@@ -3,10 +3,8 @@ import hashlib
 import json
 from openai import OpenAI
 import tiktoken
-from pathlib import Path
 
-
-BASE_DIR = Path(__file__).resolve()
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 # 配置
 client = OpenAI(api_key=os.getenv("DEEPSEEK_API_KEY"), base_url="https://api.deepseek.com")
 SOURCE_DIR = os.path.join(BASE_DIR, "")
