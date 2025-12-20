@@ -31,7 +31,7 @@ jobs:
           python-version: '3.10'
 
       - name: Install dependencies
-        run: pip install openai
+        run: pip install openai tiktoken 
 
       # 第二步：运行你之前的翻译脚本
       - name: Run Translation Script
