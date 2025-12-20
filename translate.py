@@ -6,7 +6,7 @@ import tiktoken
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 # 配置
-client = OpenAI(api_key=os.getenv("DEEPSEEK_API_KEY"), base_url="https://api.deepseek.com",temperature=1.2)
+client = OpenAI(api_key=os.getenv("DEEPSEEK_API_KEY"), base_url="https://api.deepseek.com")
 SOURCE_DIR = os.path.join(BASE_DIR, "")
 TARGET_DIR = "docs_zh"
 CACHE_FILE = "translation_cache.json"
@@ -29,7 +29,8 @@ def translate_text(text):
     prompt = f"You are a professional technical translator. Translate the following Markdown content into Chinese. Keep markdown structure, links, and code blocks unchanged.\n\nContent:\n{text}"
     response = client.chat.completions.create(
         model="deepseek-chat",
-        messages=[{"role": "user", "content": prompt}]
+        messages=[{"role": "user", "content": prompt}],
+        temperature=1.2
     )
     return response.choices[0].message.content
 
